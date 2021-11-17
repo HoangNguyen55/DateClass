@@ -26,11 +26,11 @@ December – 31 days
 class myDate
 {
 	public:
-		static enum PRINT_MODE { GENERAL, LONG, MONTH_SHORTEN, FULL };
+		static enum class PRINT_MODE { GENERAL, LONG, MONTH_SHORTEN, FULL };
 
 		void setDate(std::string);
 		bool verifyDateValid();
-		void toString(int);
+		std::string toString(PRINT_MODE);
 		int getDayOfYear();
 		bool isALeapYear();
 
@@ -39,21 +39,22 @@ class myDate
 	private:
 		static const std::string NUM_TO_DAY[7];
 		static const int DAYS_IN_MONTH[13];
-		static const std::string NUM_TO_MONTH[12];
+		static const std::string NUM_TO_MONTH[13];
 		//MM DD YYYY
-		static const int BASE_LINE_TIME[3];
+		static const int BASE_LINE_TIME;
 
-		int month;
-		int day;
-		int year;
+		unsigned int month;
+		unsigned int day;
+		unsigned int year;
 
 		// 11/15 is the 319th day of the year
 		int dateOfTheYear;
-		// mondy, sunday, etc...
-		std::string dayOfTheWeek;
+		// monday, sunday, etc...
+		int dayOfTheWeek;
 		bool isDateValid;
 		bool isLeapYear;
 
-		std::string calculateDayOfWeek();
+		int calculateDayOfWeek();
+		int calculateDayOfYear();
 };
 
