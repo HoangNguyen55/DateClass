@@ -16,31 +16,44 @@ November – 30 days
 December – 31 days
 */
 
+/*
+	general: 11/17/2021
+	long: november 17, 2021
+	month shorten: 17-nov-2021
+	full: wednesday, november 17, 2021
+*/
+
 class myDate
 {
 	public:
+		static enum PRINT_MODE { GENERAL, LONG, MONTH_SHORTEN, FULL };
+
 		void setDate(std::string);
-		// isDateValid() ????????
-		bool getDateValid();
-		void printDate(int);
+		bool verifyDateValid();
+		void toString(int);
 		int getDayOfYear();
+		bool isALeapYear();
 
 		myDate();
 		myDate(std::string);
 	private:
-		static const std::string NUMTODAY[7];
-		static const int DAYSINMONTH[13];
-		static const std::string NUMTOMONTH[12];
-		
+		static const std::string NUM_TO_DAY[7];
+		static const int DAYS_IN_MONTH[13];
+		static const std::string NUM_TO_MONTH[12];
+		//MM DD YYYY
+		static const int BASE_LINE_TIME[3];
+
 		int month;
 		int day;
 		int year;
 
 		// 11/15 is the 319th day of the year
 		int dateOfTheYear;
-		// mondey, sunday, etc...
-		int dayOfTheWeek;
+		// mondy, sunday, etc...
+		std::string dayOfTheWeek;
 		bool isDateValid;
 		bool isLeapYear;
+
+		std::string calculateDayOfWeek();
 };
 
