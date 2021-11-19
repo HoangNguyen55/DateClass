@@ -25,20 +25,9 @@ December – 31 days
 
 class myDate
 {
-	public:
-		static enum class PRINT_MODE { GENERAL, LONG, MONTH_SHORTEN, FULL };
-
-		void setDate(std::string);
-		bool verifyDateValid();
-		std::string toString(PRINT_MODE);
-		int getDayOfYear();
-		bool isALeapYear();
-
-		myDate();
-		myDate(std::string);
 	private:
 		static const std::string NUM_TO_DAY[7];
-		static const int DAYS_IN_MONTH[13];
+		static const unsigned int DAYS_IN_MONTH[13];
 		static const std::string NUM_TO_MONTH[13];
 		//MM DD YYYY
 		static const int BASE_LINE_TIME;
@@ -56,5 +45,18 @@ class myDate
 
 		int calculateDayOfWeek();
 		int calculateDayOfYear();
+
+	public:
+		const enum class PRINT_MODE { GENERAL=1, LONG, MONTH_SHORTEN, FULL };
+
+		void setDate(std::string);
+		bool verifyDateValid();
+		std::string toString(PRINT_MODE);
+		int getDayOfYear();
+		bool isALeapYear();
+
+		myDate();
+		myDate(std::string);
+	
 };
 
