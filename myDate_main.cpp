@@ -64,7 +64,7 @@ void getPrintMode(int& in)
     {
         std::cin.clear();
         std::cin.ignore(100, '\n');
-        printf("%s", "Number from 1-4 only\n");
+        printf("%s", "Number from 1-5 only\n");
         std::cin >> in;
     }
 
