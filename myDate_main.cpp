@@ -83,6 +83,7 @@ void getPrintMode(int& in)
         default:
             std::cout << "\n\n----------------------------------\nError Unknown mode\n";
             getPrintMode(in);
+            break;
     }
     return;
 }
